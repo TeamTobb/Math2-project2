@@ -1,0 +1,48 @@
+%!TEX encoding = UTF-8 Unicode
+%\documentclass{article}
+%\usepackage{listings}
+%\usepackage{amsmath}
+%\begin{document}
+% remove all before
+
+%oppgavetekst
+
+Add a sinusoidal pile to the beam. This means adding a function of form $s(x)=-pg\sin(\frac{\pi}{L}x)$ to the force term $f(x)$. Prove that the solution
+
+\begin{align}
+y(x) = \frac{f}{{24EI}}{x^2}({x^2} - 4Lx + 6{L^2}) - \frac{{pgL}}{{EI\pi }}\left( {\frac{{{L^3}}}{{{\pi ^3}}}\sin \frac{\pi }{L} - \frac{{{x^3}}}{6} + \frac{L}{2}{x^2} - \frac{{{L^2}}}{{{\pi ^2}}}x} \right)
+\end{align}
+
+satisfies the Euler–Bernoulli beam equation and the clamped-free boundary conditions.
+
+\vspace{5mm}
+\textbf{Løsning}
+
+Skal bevise at: 
+\begin{align}
+\label{ex4}
+y(x) &= \frac{f}{{24EI}}{x^2}({x^2} - 4Lx + 6{L^2}) - \frac{{pgL}}{{EI\pi }}\left( {\frac{{{L^3}}}{{{\pi ^3}}}\sin \frac{\pi }{L}x - \frac{{{x^3}}}{6} + \frac{L}{2}{x^2} - \frac{{{L^2}}}{{{\pi ^2}}}x} \right)\nonumber\\ 
+\intertext{Vi starter med å få EI på venstre side}
+EIy(x) &= \frac{f}{{24}}{x^2}({x^2} - 4Lx + 6{L^2}) - \frac{{pgL}}{{\pi }}\left( {\frac{{{L^3}}}{{{\pi ^3}}}\sin \frac{\pi }{L}x - \frac{{{x^3}}}{6} + \frac{L}{2}{x^2} - \frac{{{L^2}}}{{{\pi ^2}}}x} \right)\nonumber\\
+%Ganger inn X^2 
+EIy(x) &= \frac{f}{{24}}({x^4} - 4Lx^3 + 6{L^2}{x^2}) - \frac{{pgL}}{{\pi }}\left( {\frac{{{L^3}}}{{{\pi ^3}}}\sin \frac{\pi }{L}x - \frac{{{x^3}}}{6} + \frac{L}{2}{x^2} - \frac{{{L^2}}}{{{\pi ^2}}}x} \right)\nonumber\\
+%deriverer 1 gang
+\intertext{Fjerdederiverer på hver side}
+EIy'(x) &= \frac{f}{{24}}(4{x^3} - 12Lx^2 + 12{L^2}x) - \frac{{pgL}}{{\pi }}\left( {\frac{{{L^3}}}{{{\pi ^3}}}\cos (\frac{\pi }{L}x) \cdot \frac{\pi}{L} - \frac{{{3x^2}}}{6} + \frac{2L}{2}x - \frac{{{L^2}}}{{{\pi ^2}}}} \right)\nonumber\\
+%deriverer 2 gang
+EIy''(x) &= \frac{f}{{24}}(12{x^2} - 24Lx + 12{L^2}) - \frac{{pgL}}{{\pi }}\left( {\frac{{{L^2}}}{{{\pi ^2}}}(-\sin (\frac{\pi }{L}x) \cdot \frac{\pi}{L}) - x + L } \right)\nonumber\\
+%deriverer 3 gang
+EIy'''(x) &= \frac{f}{{24}}(24x - 24L) - \frac{{pgL}}{{\pi }}\left( {\frac{{{L}}}{{{\pi}}}(-\cos (\frac{\pi }{L}x) \cdot \frac{\pi}{L} )- 1 } \right)\nonumber\\
+%deriverer 4 gang
+EIy''''(x) &= \frac{f}{{24}}(24) - \frac{{pgL}}{{\pi }}\left( {\sin (\frac{\pi }{L}x) \cdot \frac{\pi}{L}  } \right)\nonumber\\
+%clean
+EIy''''(x) &= \frac{f24}{24} - {pg} \cdot{\sin (\frac{\pi }{L}x) } \nonumber\\
+%more clean
+EIy''''(x) &= f - {pg} \cdot{\sin (\frac{\pi }{L}x) } \nonumber\\
+\end{align}
+
+Vi ser ut ifra resultatet i bevis \ref{ex4} at ligningen er ekvivalent med $s(x)$. 
+
+
+% remove after
+%\end{document}

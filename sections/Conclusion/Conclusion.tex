@@ -1,0 +1,8 @@
+Vi har i denne oppgaven regnet mye på Euler-Bernoulli ligningen for materialers bøyning under påvirkning av ytre- og egenkrefter. Vi har sett at ligningen er svært nøyaktig. Når vi sammenligner den tilnærmede approksimasjonen og den korrekte funksjonen ser vi at feilen i noen tilfeller er lik emach.\ref{fig:errorplot2}\\
+
+En interessant observasjon vi gjorde, var å se hvordan feilen utviklet seg ved stadig minkende h (steglengde). Feilen i diskretiseringen er bevist ved $O(h^2)$. Av dette følger det at feilen, i teorien, vil gå mot 0 når n går mot uendelig $h=\frac{2}{n}$. Dette vil si at jo flere oppdelinger av bjelken vi foretar oss, jo mindre blir feilen gjort i diskretiseringen.\\
+
+Dessverre er det ikke slik i vårt tilfelle. I en perfekt verden, hvor datamaskinene og kalkulatorene kan regne med 100\% nøyaktige tall uten avrundinger, ville dette vært tilfelle. I et av våre tilfeller fant vi ut at feilen var minst ved n=1280. Vi ser av \ref{fig:result5} at feilen synker mot n = 1280, men deretter øker det. Dette vil si at etter n = 1280 har kondisjonstallet en såpass stor påvirkning på utregningene gjort for å finne den vertikale forskyvningen - og derfor stiger feilen. Vi ser at dette stemmer med tabellen over kandisjonstallene \ref{fig:cond5}.\\
+
+Dette er ikke bare tilfelle hvor vi har en sinusformet belastning på bjelken. Det vil være én n for alle typer vekter påført bjelken hvor feilen er minst, og ved å øke n etter dette punktet vil kondisjonstallet øke for mye i forhold til hvor mye vi reduserer h. 
+
