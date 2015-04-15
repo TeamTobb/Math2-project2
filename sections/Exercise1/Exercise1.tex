@@ -1,82 +1,56 @@
-% !TEX encoding = UTF-8 Unicode
-% \documentclass{article}
-% \usepackage{../../superstyle}
-% \usepackage{listings}
-% \usepackage{amsmath}
-% \begin{document}
-% remove all before
-
 %oppgavetekst
-Write a Matlab program to define the structure matrix A in (2.34). Then, using the Matlab \textbackslash command or code of your own design, solve the system for the displacements $y_i$ using n = 10 grid steps.
+I oppgaven får vi gitt systemet: 
+\begin{align}
+{(x - {A_1})^2} + {(y - {B_1})^2} + {(z - {C_1})^2} &= {[c({t_1} - d)]^2} \nonumber \\ 
+{(x - {A_2})^2} + {(y - {B_2})^2} + {(z - {C_2})^2} &= {[c({t_2} - d)]^2}  \nonumber \\
+{(x - {A_3})^2} + {(y - {B_3})^2} + {(z - {C_3})^2} &= {[c({t_3} - d)]^2}  \nonumber \\
+{(x - {A_4})^2} + {(y - {B_4})^2} + {(z - {C_4})^2} &= {[c({t_4} - d)]^2} \label{Ex1:system}
+\end{align}
 
-\vspace{5mm}
-Løsning
-
-\begin{lstlisting}[caption={oppgave1.m}]
-format long
-%følgende kommando ganger (h^4 / EI * F(x)) med invers av matrisen som er resultat av lagmatrise, som er matrisen gitt i oppgaven.
-ys = lagmatrise(10)\konstantkrefter(10);
-disp(ys); 
-\end{lstlisting}
-
-\begin{lstlisting}[caption={lagmatrise.m}]
-function [A] = lagmatrise(n)
-%legger inn rader fra oppgaveteksten. 
-A = sparse(n,n);
-A(1,1) = 16;
-A(1,2) = -9;
-A(1,3) =  8/3;
-A(1,4) = -1/4;
-A(2,1) = -4;
-A(2,2) =  6;
-A(2,3) = -4;
-A(2,4) =  1;
-%legger inn repeterende rader i midten av matrisen, fra tredje rad til og
-%med tredje siste rad. 
-for x=3:n-2
-    A(x,x-2)=1;
-    A(x,x-1)=-4;
-    A(x,x)=6;
-    A(x,x+1)=-4;
-    A(x,x+2)=1;
-end
-%legger inn de 2 siste radene. 
-A(n-1,n-3) =   16/17;
-A(n-1,n-2) =  -60/17;
-A(n-1,n-1) =   72/17;
-A(n-1,n)   =  -28/17;
-A(n,n-3)   =  -12/17;
-A(n,n-2)   =   96/17;
-A(n,n-1)   = -156/17;
-A(n,n)     =   72/17;
-\end{lstlisting}
-
-\begin{lstlisting}[caption={konstantkrefter.m}]
-function [B] = konstantkrefter(n)
-%lager høyresiden av matriseligningen. (h^4/EI) * f(x) 
-%deler opp bjelken i n lengder med lengde h 
-h = 2 / n;        
-%regner ut kraften f(x) 
-kraft = -9.81*480*0.3*0.03; 
-%definerer E og I som gitt i oppgaven
-E = 1.3*10.^(10); 
-I = (0.3*0.03.^3)/12; 
-%lager en n høy matrise, bredde 1, av enere, som ganges med kraft og h^4/EI.
-B = ones(n, 1) * h^4/(E*I) * kraft;
-\end{lstlisting}
-
-\vspace{3mm}
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.4\textwidth]{sections/Exercise1/oppgave1disp}
-    % \includegraphics[width=0.4\textwidth]{oppgave1disp}
-    \caption{Vertical Displacement}
-    \label{fig:verticaldisp}
-\end{figure}
- 
-Vektoren gitt i figur \ref{fig:verticaldisp} er resultaten av disp(ys) og viser den vertikale forskyvningen til bjelken relativt til utgangspunktet.
+Oppgaveteksten sier at hvis man subtraherer de tre siste likningene med den første, får vi tre linneære likninger. Vi starter med å subtrahere den andre likningen med den første i (\ref{Ex1:system}). 
+\begin{multline}
+{(x - {A_1})^2} - {(x - {A_2})^2} + {(y - {B_1})^2} - {(y - {B_2})^2} + {(z - {C_1})^2} - {(z - {C_2})^2} = 
+{[c({t_1} - d)]^2} - {[c({t_2} - d)]^2}  \label{Ex1:linearEqs}
+\end{multline}
 
 
-% remove after
-% \end{document}
+Vi løser opp andregradsuttrykkene i (\ref{Ex1:linearEqs}) og setter uttrykket lik 0.
+\begin{multline}
+\\
+({x^2} - 2{A_1}x + A_1^2) - ({x^2} - 2{A_2}x + A_2^2)  \\
++ \\
+({y^2} - 2{B_1}y + B_1^2) - ({y^2} - 2{B_2}y + B_2^2) \\
++ \\
+({z^2} - 2{C_1}z + C_1^2) - ({z^2} - 2{C_2}z + C_2^2)\\
+- \\
+({c^2}{t_1} - 2{t_1}{c^2} + {c^2}{d^2}) + ({c^2}{t_2} - 2{t_2}{c^2} + {c^2}{d^2}) \\
+= \\
+0 \\ \nonumber
+\end{multline} 
+
+
+Vi samler så utrykkene for henholdsvis A, B, C og de resterende konstantene uttrykt med $W = {A_1}^2 - {A_2}^2 + {B_1}^2 - {B_2}^2 + {C_1}^2 - {C_2}^2 + ({c^2}( - {t_1}^2 + {t_2}^2))$.  
+\begin{multline}
+- 2x({A_1} - {A_2}) - 2y({B_1} - {B_2}) - 2z({C_1} - {C_2}) + 2d{c^2}({t_1} - {t_2}) + W = 0
+\end{multline}
+
+
+Det blir flere lignende likninger når vi trekker fra likning nr 3 og 4 fra den første i (\ref{Ex1:system}). De tre likningene blir
+\begin{align}
+- 2x({A_1} - {A_2}) - 2y({B_1} - {B_2}) - 2z({C_1} - {C_2}) + 2d{c^2}({t_1} - {t_2}) + W &= 0 \nonumber \\
+- 2x({A_1} - {A_3}) - 2y({B_1} - {B_3}) - 2z({C_1} - {C_3}) + 2d{c^2}({t_1} - {t_3}) + W &= 0  \nonumber\\
+- 2x({A_1} - {A_4}) - 2y({B_1} - {B_4}) - 2z({C_1} - {C_4}) + 2d{c^2}({t_1} - {t_4}) + W &= 0 \nonumber \\ \label{Ex1:3equations}
+\end{align}
+
+
+Likningene blir så samlet slik at x-, y-, z-, og d-punktene blir samlet i hver sin vektor. Vektorene uttrykkes ved ${\vec u_x}, {\vec u_y}, {\vec u_z}$ og  ${\vec u_d}$, samt $\vec{w}$. 
+\begin{align}
+{\vec u_x} &=  - 2*[{A_1} - {A_2};\enspace {A_1} - {A_3}; \enspace{A_1} - {A_4}] \nonumber \\
+{\vec u_y} &=  - 2*[{B_1} - {B_2}; \enspace{B_1} - {B_3}; \enspace{B_1} - {B_4}] \nonumber \\
+{\vec u_z} &=  - 2*[{C_1} - {C_2}; \enspace{C_1} - {C_3}; \enspace{C_1} - {C_4}] \nonumber \\
+{\vec u_d} &=  2c^2*[{t_1} - {t_2}; \enspace{t_1} - {t_3}; \enspace{t_1} - {t_4}] \nonumber \\
+{\vec w}  &= [{A_1}^2 - {A_2}^2 + {B_1}^2 - {B_2}^2 + {C_1}^2 - {C_2}^2 + ({c^2}( - {t_1}^2 + {t_2}^2)); \nonumber \\
+&\hskip 1.4em  {A_1}^2 - {A_3}^2 + {B_1}^2 - {B_3}^2 + {C_1}^2 - {C_3}^2 + ({c^2}( - {t_1}^2 + {t_3}^2)); \nonumber \\ 
+&\hskip 1.4em {A_1}^2 - {A_4}^2 + {B_1}^2 - {B_4}^2 + {C_1}^2 - {C_4}^2 + ({c^2}( - {t_1}^2 + {t_4}^2));]
+\end{align}
+Vi får da uttrykket $x*{\vec u_x} + y*{\vec u_y} + z*{\vec u_z} + d*{\vec u_d} + {\vec w} = 0$. 
