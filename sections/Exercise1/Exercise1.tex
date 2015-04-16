@@ -97,7 +97,7 @@ Videre bruker vi loven som sier at matriser med repeterende kolonner er 0. Da st
 	=0
 \end{align}
 
-Den første delen av determinanten uttrykt i ligning \ref{eq:det_final} kan løses opp og få x på utsiden. Det samme kan gjøres hvor d inngår i matrisen. Da står vi igjen med: 
+Den første delen av determinanten uttrykt i ligning \ref{eq:det_final} kan løses opp og få x på utsiden\cite{TheDeterminant}. Det samme kan gjøres hvor d inngår i matrisen. Da står vi igjen med: 
 
 \begin{align}
 	x\cdot\text{det}[\vec{u}_y|\vec{u}_z | \vec{u}_x] 
@@ -116,7 +116,7 @@ Til slutt setter vi x alene. Da står vi igjen med:
 	-\text{det}[\vec{u}_y|\vec{u}_z | \vec{w}]}{\text{det}[\vec{u}_y|\vec{u}_z | \vec{u}_x]}
 \end{align}
 
-For å finne uttrykk for henholdsvis y og z bruker vi samme metode, men med forskjellige utgangsmatriser. For y har vi følgende vektor som start: 
+For å finne uttrykk for henholdsvis y og z bruker vi samme metode, men med forskjellige utgangsvektorer. På grunn av at en matrise som inneholder lineært avhengige vektorer har determinant = 0 \cite{Determinants}, kan vi sette opp likninger for dette. Ved å veksle mellom å sette inn $\vec{u}_x$, $\vec{u}_y$ og $\vec{u}_z$ som de to første vektorene får vi gunstige startmatriser vi kan bruke for å uttrykke x, y og z med d. For y har vi følgende vektor som start: 
 
 \begin{align} \label{eq:detx}
 	\text{det}[\vec{u}_x|\vec{u}_z |x\vec{u}_x + y\vec{u}_y + z\vec{u}_z + d\vec{u}_d + \vec{w}]=0
@@ -144,7 +144,7 @@ Bruker vi samme fremgangsmåte som for x, ender vi opp med følgende uttrykk for
 	-\text{det}[\vec{u}_x|\vec{u}_y | \vec{w}]}{\text{det}[\vec{u}_x|\vec{u}_y | \vec{u}_z]}
 \end{align}
 
-Nå har vi altså fått uttrykt både x, y og z ved d. Vi kunne her ha uttrykt uttrykkene med den samme nevneren, ved å bruke loven som sier at vi kan endre fortegn til en determinant så lenge vi bytter plass på 2 rader. For nå å gå videre, setter vi disse inn i bokas likning 4.38. Dette vil resultere i en likning som inneholder d i første og andre grad, og vi kan derav finne d ved å bruke andregradsformelen. Med adnre ord vil vi få ett utrykk som vi kan skrive som $Ad^2+Bd+C=0$ Andregradsformelen er gitt ved $d=\frac{-B \pm \sqrt{B^2-4AC}}{2A}$. Før vi setter uttrykkene vi har funnet for x, y og z inn i bokas likning 4.38, deler vi de opp i flere variabler for å gjøre uttrykket ryddigere. Vi setter
+Nå har vi altså fått uttrykt både x, y og z ved d. Vi kunne her ha uttrykt uttrykkene med den samme nevneren, ved å bruke loven som sier at vi kan endre fortegn til en determinant så lenge vi bytter plass på 2 rader\cite{TheDeterminant}. For nå å gå videre, setter vi disse inn i bokas likning 4.38. Dette vil resultere i en likning som inneholder d i første og andre grad, og vi kan derav finne d ved å bruke andregradsformelen. Med adnre ord vil vi få ett utrykk som vi kan skrive som $Ad^2+Bd+C=0$ Andregradsformelen er gitt ved $d=\frac{-B \pm \sqrt{B^2-4AC}}{2A}$. Før vi setter uttrykkene vi har funnet for x, y og z inn i bokas likning 4.38, deler vi de opp i flere variabler for å gjøre uttrykket ryddigere. Vi setter
 
 \begin{align}
 	x_1&=\frac{-d\cdot\text{det}[\vec{u}_y|\vec{u}_z | \vec{u}_d]}{\text{det}[\vec{u}_y|\vec{u}_z | \vec{u}_x]}\nonumber 
