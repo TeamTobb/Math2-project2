@@ -129,17 +129,17 @@ For z har vi følgende vektor som start:
 
 Bruker vi samme fremgangsmåte som for x, ender vi opp med følgende uttrykk for x, y og z: 
 
-\begin{align}
+\begin{align}\label{eq:x}
     x=\frac{-d\cdot\text{det}[\vec{u}_y|\vec{u}_z | \vec{u}_d] 
 	-\text{det}[\vec{u}_y|\vec{u}_z | \vec{w}]}{\text{det}[\vec{u}_y|\vec{u}_z | \vec{u}_x]}
 \end{align}
 
-\begin{align}
+\begin{align}\label{eq:y}
     y=\frac{-d\cdot\text{det}[\vec{u}_x|\vec{u}_z | \vec{u}_d] 
 	-\text{det}[\vec{u}_x|\vec{u}_z | \vec{w}]}{\text{det}[\vec{u}_x|\vec{u}_z | \vec{u}_y]}
 \end{align}
 
-\begin{align}
+\begin{align}\label{eq:z}
     z=\frac{-d\cdot\text{det}[\vec{u}_x|\vec{u}_y | \vec{u}_d] 
 	-\text{det}[\vec{u}_x|\vec{u}_y | \vec{w}]}{\text{det}[\vec{u}_x|\vec{u}_y | \vec{u}_z]}
 \end{align}
@@ -185,7 +185,6 @@ I MatLab er dette kodet på følgende måte:
 \end{lstlisting} 
 
 Av dette følger det at $x=x_1+x_2$, $y=y_1+y_2$ og $z=z_1+z_2$. Setter vi nå dette inn i første likningen i bokas likning 4.38 får vi: 
-
 \begin{multline}
 	\\
     ((x_1+x_2)-A_1)^2+((y_1+y_2)-B_1)^2+((z_1+z_2)-C_1)^2\\
@@ -199,7 +198,6 @@ Av dette følger det at $x=x_1+x_2$, $y=y_1+y_2$ og $z=z_1+z_2$. Setter vi nå d
     (z_1+z_2)^2-2C(z_1+z_2)+C^2-(c(t_1-d))^2\\
     =0 \nonumber 	\\
 \end{multline}
-
 \begin{multline}\label{eq:d_expanded}
     \\
     x_1^2+2x_1x_2+x_2^2-2Ax_1-2Ax_2+A^2+y_1^2+2y_1y_2+y_2^2-2By_1-2By_2+B^2\\
@@ -223,3 +221,41 @@ C = (x2^2 - 2*A1*x2 + A1^2) + (y2^2 -2*B1*y2 + B1^2) + (z2^2 - 2*C1*z2 + C1^2) -
 dd(1) = (-B + sqrt(B^2 - 4*A*C))/(2*A);
 dd(2) = (-B - sqrt(B^2 - 4*A*C))/(2*A);
 \end{lstlisting}
+Til slutt regner vi ut 2 verdier for x, y og z ved å bruke formlene \ref{eq:x}, \ref{eq:y} og \ref{eq:z}. Måten vi skiller mellom disse på er at vi sjekker om koordinatparene befinner seg omtrent på jordas overflate. Det vil alltid være ett sett av koordinater som ikke gjør det, og vi kan deretter utelukke dette settet. 
+I MatLab er dette gjort på følgende måte: 
+
+\begin{lstlisting}
+	%Første løsning for x, y og z. Setter inn den ene verdien 
+	%funnet d i uttrykket for x, y og z gitt i teorien:
+	x = x1*dd(1) + x2;
+	y = y1*dd(1) + y2;
+	z = z1*dd(1) + z2;
+
+	%Finner de andre verdiene
+	xx = x1*dd(2) + x2;
+	yy = y1*dd(2) + y2;
+	zz = z1*dd(2) + z2;
+
+	svar = [x y z;xx yy zz]; 
+
+	%Finner hvilket sett som befinner seg på jordas overflate
+	riktig_pos = 2;
+	if (abs(svar(1,3) - 6371) < abs(svar(2,3) - 6371)) riktig_pos = 1; end
+
+	%Setter riktige koordinater
+	x= svar(riktig_pos,1); 
+	y= svar(riktig_pos,2); 
+	z= svar(riktig_pos,3); 
+	d=dd(riktig_pos); 
+	end
+\end{lstlisting}
+
+Resultatet av dette er vist i figur \ref{fig:task2result}. 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.4\textwidth]{sections/Exercise1/task2result}
+    % \includegraphics[width=0.4\textwidth]{errorplot2}
+    \caption{Task2.m - result}
+    \label{fig:task2result}
+\end{figure}
