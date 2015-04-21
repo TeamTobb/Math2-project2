@@ -1,16 +1,23 @@
-%!TEX encoding = UTF-8 Unicode
-%\documentclass{article}
-%\usepackage{listings}
-%\usepackage{amsmath}
-%\begin{document}
-% remove all before
-
-%oppgavetekst
 
 Oppgavetekst
+Now set up a test of the conditioning of the GPS problem. Define satellite positions $(A_i,B_i,C_i)$ from spherical coordinates $(\rho,\phi i,\theta i)$ as
 
-\vspace{5mm}
+\begin{align}
+	A_i &= \rho \cos{\phi i} \cos{\theta i} \nonumber \\
+	B_i &= \rho \cos{\phi i} \sin{\theta i} \nonumber \\
+	C_i &= \rho \sin{\theta i} \nonumber \\
+\end{align}
+
+where $\rho = 26570$ km is fixed, while $0 \leq \phi_i \leq \frac{\pi}{2}$ and $0 \leq \theta_i \leq 2 \pi$ for $i=1,...,4$ are chosen arbitrarily. The $\phi$ coordinate is restricted so that the four satellites are in the upper hemisphere. Set $x = 0$, $y = 0$, $z = 6370$, $d = 0.0001$, and calculate the corresponding satellite ranges $R_i = \sqrt{A_i^2 + B_i^2 + (C_i − 6370)^2}$ and travel times $t_i = d + R_i /c$.
+
+We will define an error magnification factor specially tailored to the situation. The atomic clocks aboard the satellites are correct up to about 10 nanoseconds, or $10^{−8}$ second. Therefore, it is important to study the effect of changes in the transmission time of this magnitude. Let the backward, or input error be the input change in meters. At the speed of light, $t_i = 10^{−8}$ second corresponds to $10^{−8}c \approx 3$ meters. Let the forward, or output error be the change in position $||(\Delta x,\Delta y,\Delta z)||_\infty$, caused by such a change in $t_i$, also in meters. Then we can define the dimensionless 
+
+\begin{align}
+    \text{error magnification factor} = \frac{||(\Delta x,\Delta y,\Delta z)||_\infty}{c||(\Delta t_1,...,\Delta t_m)||_\infty} \nonumber
+\end{align}
+
+and the condition number of the problem to be the maximum error magnification factor for all small $\Delta t_i$ (say, $10^{−8}$ or less).
+
+Change each $t_i$ defined in the foregoing by $t_i = +10^{-8}$or $−10^{−8}$, not all the same. Denote the new solution of the equations (4.37) by $(\bar{x},\bar{y},\bar{z},\bar{d})$, and compute the difference in position $||(\Delta x,\Delta y,\Delta z)||_\infty$ and the error magnification factor. Try different variations of the $\Delta t_i$'s. What is the maximum position error found, in meters? Estimate the condition number of the problem, on the basis of the error magnification factors you have computed. 
+
 \textbf{Løsning}
-
-% remove after
-%\end{document}
