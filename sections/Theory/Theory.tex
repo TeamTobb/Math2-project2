@@ -1,1 +1,21 @@
-TEORI
+GPS' oppgave er å gi mottakeren mest mulig \textit{nøyaktige} koordinater. For å få koordinater med høyst mulig nøyaktighet, finnes tre teknikker som kan resultere i centimeter- og til og med milimeter nøyaktige koordinater: \cite{StrangBorre}
+\begin{itemize}
+  \item \textbf{Differential Global Positioning System (DGPS).} Denne teknikken går ut på at man har basestasjoner på jorden, der  den nøyaktige posisjonen er kjent. Basestasjonen mottar likevel sin posisjon fra satelitter, og sammenligner denne posisjonen med den riktige. Basestasjonen finner da den feilen som satelittene gir. Når en annen mottaker (med ukjent posisjon) så mottar sin posisjonen fra satelittene, mottar den også feilen som basestasjonen har funnet. Denne feilen legges til i den mottatte posisjonen fra satelittene og mottakeren får dermed en mer nøyaktig posisjon. \cite{DGPS}
+  \item \textbf{Repetering av målinger.} Hvis en mottaker mottar flere målinger etter hverandre fra satelittene, vil variansen til alle målingene bli mindre enn bare en måling. Dette vil videre gi en mer nøyaktig posisjon. 
+  \item \textbf{Estimering av feil fra alle kilder i hver måling.}  Om man finner feilestimat fra alle mulige kilder og regner med disse i utregningen av posisjonen hos mottakeren, vil nøyaktigheten av posisjonen øke. 
+\end{itemize}
+Det er det siste punktet dette prosjektet tar for seg. Med hovedvekt på feilestimat i satelittklokkene og hvor tett satelittene er posisjonert. 
+
+
+
+%Tre teknikker for å få centimeter- og til og med milimeter nøyaktige posisjoner: [Strang and Borre (1997)]. 
+%	- Bruk to eller flere mottakere. Minst en mottaker (basestasjon) har en kjent posisjon, den mottar en "kalkulert posisjon" fra satelitten, og rekner da ut forskjellen mellom sin posisjon og posisjonen den fikk fra satelitten. Når en annen mottaker med ukjent posisjon nå mottar en posisjon fra satelitten, mottar den også feilmarginen fra basestasjonen. Den kan dermed rekne ut sin korrekte posisjon. Dette kalles DGPS. 
+%	- Repetering av målinger. Hvis en mottaker mottar flere målinger av sin posisjon etter hverandre, vil variansen til alle målingene bli mindre enn bare en måling. 
+%	- Estimere hver feil fra alle kilder i hver måling (klokkeforskjell, forskjellig lyshastighet, tette satelitter osv). 
+%	Vi skal i dette prosjektet rekne på det siste punktet.
+
+	% Ê - Ê
+	% Þ - Þ
+	% å - å
+	
+% HUSK REFERANSE På DGPS. 
