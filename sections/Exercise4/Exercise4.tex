@@ -50,10 +50,12 @@ function [conditionNumber, worst_max_pos_error] = task4()
 	[x,y,z,d]= task2general(A,B,C,t); 
 	riktig = [x y z d];
 
-	%Definerer en matrise som inneholder alle mulige kombinasjoner av + og -
-	%feil. 
-	factor = [[-1,-1,-1,1];[-1,-1,1,1];[-1,1,1,1];[-1,1,-1,1];[-1,1,1,-1];[-1,-1,1,-1];[-1,1,-1,-1];[1,1,1,-1];[1,1,-1,-1];[1,-1,-1,-1];[1,-1,1,-1];[1,-1,-1,1];[1,1,-1,1];[1,-1,1,1]];
-
+	%Definerer en matrise som inneholder alle mulige kombinasjoner av + og - 
+	factor = [[-1,-1,-1,1];[-1,-1,1,1];[-1,1,1,1];
+			  [-1,1,-1,1];[-1,1,1,-1];[-1,-1,1,-1];
+			  [-1,1,-1,-1];[1,1,1,-1];[1,1,-1,-1];
+			  [1,-1,-1,-1];[1,-1,1,-1];[1,-1,-1,1];
+			  [1,1,-1,1];[1,-1,1,1]];
 
 	max_pos_error = zeros(1,14);
 	emf = zeros(1,14);
@@ -199,7 +201,7 @@ I figur \ref{fig:task4answer} er de største verdiene for både EMF og den maksi
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.3\textwidth]{sections/Exercise4/task4answer.png}
+	\includegraphics[width=0.4\textwidth]{sections/Exercise4/task4answer.png}
 	\caption{Task4.m - resultat}
 	\label{fig:task4answer}
 \end{figure}

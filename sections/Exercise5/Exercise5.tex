@@ -34,12 +34,14 @@ end
 
 c = 299792.458;
 
+% finner satelittavstandene R og tilhørende reisetider for signalene.
 R = sqrt((A.^2)+(B.^2)+((C-6370).^2));
 t = 0.0001 + (R/c);
 
 [x,y,z,d]= task2general(A,B,C,t); 
 riktig = [x y z d];
 
+% lager en matrise med alle mulige kombinasjoner av + og - (2^4).
 factor = [[-1,-1,-1,-1];[1,1,1,1];[-1,-1,-1,1];[-1,-1,1,1];
 		  [-1,1,1,1];[-1,1,-1,1];[-1,1,1,-1];[-1,-1,1,-1];
 		  [-1,1,-1,-1];[1,1,1,-1];[1,1,-1,-1];[1,-1,-1,-1];
@@ -48,6 +50,7 @@ factor = [[-1,-1,-1,-1];[1,1,1,1];[-1,-1,-1,1];[-1,-1,1,1];
 max_pos_error = zeros(1,16);
 emf = zeros(1,16);
 
+% finner alle feil i posisjon og EMFer for alle kombinasjoner av + og -
 for i = 1:length(factor)
     dt1(1) = t(1) + 1e-8*factor(i,1);
     dt1(2) = t(2) + 1e-8*factor(i,2);
