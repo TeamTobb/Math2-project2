@@ -1,5 +1,6 @@
 %oppgavetekst
-I oppgaven får vi gitt systemet: 
+
+I oppgaven det gitt et ligningssystem: 
 \begin{align}
 {(x - {A_1})^2} + {(y - {B_1})^2} + {(z - {C_1})^2} &= {[c({t_1} - d)]^2} \nonumber \\ 
 {(x - {A_2})^2} + {(y - {B_2})^2} + {(z - {C_2})^2} &= {[c({t_2} - d)]^2}  \nonumber \\
@@ -7,7 +8,8 @@ I oppgaven får vi gitt systemet:
 {(x - {A_4})^2} + {(y - {B_4})^2} + {(z - {C_4})^2} &= {[c({t_4} - d)]^2} \label{Ex1:system}
 \end{align}
 
-Oppgaveteksten sier at hvis man subtraherer de tre siste likningene med den første, får vi tre linneære likninger. Vi starter med å subtrahere den andre likningen med den første i (\ref{Ex1:system}). 
+Det er ønskelig løse dette ligningssystemet slik at alle x, y, og z er uttrykt med d, slik at det kan lages kvadratiske ligninger i form av d, for så å løse dem med hensyn til d. I oppgaveteksten ble det fortalt at om man subtraherer de tre siste ligningene fra den første, vil man få tre linneære ligninger. Vi starter med å subtrahere den andre ligningen med den første i (\ref{Ex1:system}). 
+
 \begin{multline}
 {(x - {A_1})^2} - {(x - {A_2})^2} + {(y - {B_1})^2} - {(y - {B_2})^2} + {(z - {C_1})^2} - {(z - {C_2})^2} = 
 {[c({t_1} - d)]^2} - {[c({t_2} - d)]^2}  \label{Ex1:linearEqs}
@@ -27,12 +29,12 @@ Vi løser opp andregradsuttrykkene i (\ref{Ex1:linearEqs}) og setter uttrykket l
 0 \\ \nonumber
 \end{multline} 
 
-Vi samler så utrykkene for henholdsvis A, B, C og de resterende konstantene uttrykt med $W = {A_1}^2 - {A_2}^2 + {B_1}^2 - {B_2}^2 + {C_1}^2 - {C_2}^2 + ({c^2}( - {t_1}^2 + {t_2}^2))$.  
+Vi samler så utrykkene slik at x, y og z er samlet, mens de resterende konstantene blir samlet i en variabel kalt \\ $W = {A_1}^2 - {A_2}^2 + {B_1}^2 - {B_2}^2 + {C_1}^2 - {C_2}^2 + ({c^2}( - {t_1}^2 + {t_2}^2))$:  
 \begin{multline}
 - 2x({A_1} - {A_2}) - 2y({B_1} - {B_2}) - 2z({C_1} - {C_2}) + 2d{c^2}({t_1} - {t_2}) + W = 0
 \end{multline}
 
-Det blir flere lignende likninger når vi trekker fra likning nr 3 og 4 fra den første i (\ref{Ex1:system}). De tre likningene blir
+Merk at ligning nr. 3 og 4 også skulle trekkes fra den første fra ligninssettet gitt i (\ref{Ex1:system}). De to nye ligningene vil gi de samme resultatene. De eneste forskjellene vil være koordinatene til satelittene. De tre ligningene blir
 \begin{align}
 - 2x({A_1} - {A_2}) - 2y({B_1} - {B_2}) - 2z({C_1} - {C_2}) + 2d{c^2}({t_1} - {t_2}) + W &= 0 \nonumber \\
 - 2x({A_1} - {A_3}) - 2y({B_1} - {B_3}) - 2z({C_1} - {C_3}) + 2d{c^2}({t_1} - {t_3}) + W &= 0  \nonumber\\
@@ -41,16 +43,16 @@ Det blir flere lignende likninger når vi trekker fra likning nr 3 og 4 fra den 
 
 Likningene blir så samlet slik at x-, y-, z-, og d-punktene blir samlet i hver sin vektor. Vektorene uttrykkes ved ${\vec u_x}, {\vec u_y}, {\vec u_z}$ og  ${\vec u_d}$, samt $\vec{w}$. 
 \begin{align}
-	{\vec u_x} &=  - 2\cdot[{A_1} - {A_2} \enspace {A_1} - {A_3}  \enspace{A_1} - {A_4}]^T \nonumber \\
-	{\vec u_y} &=  - 2\cdot[{B_1} - {B_2}  \enspace{B_1} - {B_3}  \enspace{B_1} - {B_4}]^T \nonumber \\
-	{\vec u_z} &=  - 2\cdot[{C_1} - {C_2}  \enspace{C_1} - {C_3}  \enspace{C_1} - {C_4}]^T \nonumber \\
-	{\vec u_d} &=  2c^2\cdot[{t_1} - {t_2}  \enspace{t_1} - {t_3}  \enspace{t_1} - {t_4}]^T \nonumber \\
+	{\vec u_x} &=  - 2\cdot[{A_1} - {A_2}, \enspace {A_1} - {A_3},  \enspace{A_1} - {A_4}]^T \nonumber \\
+	{\vec u_y} &=  - 2\cdot[{B_1} - {B_2},  \enspace{B_1} - {B_3},  \enspace{B_1} - {B_4}]^T \nonumber \\
+	{\vec u_z} &=  - 2\cdot[{C_1} - {C_2},  \enspace{C_1} - {C_3},  \enspace{C_1} - {C_4}]^T \nonumber \\
+	{\vec u_d} &=  2c^2\cdot[{t_1} - {t_2},  \enspace{t_1} - {t_3},  \enspace{t_1} - {t_4}]^T \nonumber \\
 	{\vec w}  &= 
 	\begin{bmatrix}
 		&{A_1}^2 - {A_2}^2 + {B_1}^2 - {B_2}^2 + {C_1}^2 - {C_2}^2 + ({c^2}( - {t_1}^2 + {t_2}^2)) \\
 		&{A_1}^2 - {A_3}^2 + {B_1}^2 - {B_3}^2 + {C_1}^2 - {C_3}^2 + ({c^2}( - {t_1}^2 + {t_3}^2)) \\ 
 		&{A_1}^2 - {A_4}^2 + {B_1}^2 - {B_4}^2 + {C_1}^2 - {C_4}^2 + ({c^2}( - {t_1}^2 + {t_4}^2))
-	\end{bmatrix}\nonumber
+	\end{bmatrix}\nonumber \\ \nonumber
 \end{align}
 
 Dette er skrevet i MatLab koden på følgende måte: 
@@ -63,10 +65,10 @@ Uz = -2 *[C1 - C2; C1 - C3; C1 - C4];
 Ud = 2 *(c^2)*[t1 - t2; t1 - t3; t1 - t4];
 W = [A1^2 - A2^2 + B1^2 - B2^2 + C1^2 - C2^2 - (c^2)*(t1^2) + (c^2)*(t2^2); 
      A1^2 - A3^2 + B1^2 - B3^2 + C1^2 - C3^2 - (c^2)*(t1^2) + (c^2)*(t3^2); 
-     A1^2 - A4^2 + B1^2 - B4^2 + C1^2 - C4^2 - (c^2)*(t1^2) + (c^2)*(t4^2)];
+     A1^2 - A4^2 + B1^2 - B4^2 + C1^2 - C4^2 - (c^2)*(t1^2) + (c^2)*(t4^2)]; 
 \end{lstlisting}
 
-Vi får da uttrykket $x\cdot{\vec u_x} + y\cdot{\vec u_y} + z\cdot{\vec u_z} + d\cdot{\vec u_d} + {\vec w} = 0$. 
+Vi får da uttrykket $x\cdot{\vec u_x} + y\cdot{\vec u_y} + z\cdot{\vec u_z} + d\cdot{\vec u_d} + {\vec w} = 0$. \newpage
 
 %jorgen kommer her 
 
@@ -214,6 +216,7 @@ Som vi ser i utregning \ref{eq:d_expanded} har vi satt inn uttrykkene vi har fun
 \end{align}
 Dette setter vi inn i andregradsformelen, og får derav 2 verdier for d. 
 
+<<<<<<< Updated upstream
 \begin{lstlisting}
 A = (x1^2 + y1^2 + z1^2 - c^2);
 B = 2*((x1*x2 - x1*A1) + (y1*y2 - y1*B2) + (z1*z2 - z1*C1)+ t1*c^2);
@@ -259,3 +262,8 @@ Resultatet av dette er vist i figur \ref{fig:task2result}.
     \caption{Task2.m - result}
     \label{fig:task2result}
 \end{figure}
+=======
+\begin{align}
+    d=\frac{-(2x_1x_2-2Ax_1+2y_1y_2-2By_1+2z_1z_2-2Cz_1-c^22t) \pm \sqrt{(2x_1x_2-2Ax_1+2y_1y_2-2By_1+2z_1z_2-2Cz_1-c^22t)^2-4(x_1^2+y_1^2+z_1^2-c^2 )\cdot(x_2^2-2Ax_2+A^2+y_2^2-2By_2+B^2+z_2^2-2Cz_2+C^2-c^2t^2)}}{2A}
+\end{align}
+>>>>>>> Stashed changes
