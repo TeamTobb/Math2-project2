@@ -1,14 +1,21 @@
 %oppgavetekst
+	Write a Matlab program to carry out the solution via the quadratic formula. Hint: Subtracting the last three equations of (4.37) from the first yields three linear equations in the four unknowns $x{\vec u_x} + y{\vec u_y} + z{\vec u_z} + d{\vec u_d} + \vec{w} = 0$, expressed in vector form. A formula for x in terms of d can be obtained from 
+\begin{align}
+0 = det[{\vec u_y}|{\vec u_z}|{\vec u_x} + y{\vec u_y} + z{\vec u_z} + d{\vec u_d} + \vec{w}] \nonumber
+\end{align}noting that the determinant is linear in its columns and that a matrix with a repeated column has determinant zero. Similarly, we can arrive at formulas for y and z, respectively, in terms of d, that can be substituted in the first quadratic equation of (4.37), to make it an equation in one variable. \\ \\
 
-I oppgaven blir det gitt et ligningssystem: 
+% Her starter oppgavel�sningen. 
+\textbf{Løsning:} \\
+
+	I oppgaveteksten blir følgende likningssystem - som er en omskrivning av likningssettet (4.37) omtalt i oppgave 2 - gitt: 
 \begin{align}
 {(x - {A_1})^2} + {(y - {B_1})^2} + {(z - {C_1})^2} &= {[c({t_1} - d)]^2} \nonumber \\ 
 {(x - {A_2})^2} + {(y - {B_2})^2} + {(z - {C_2})^2} &= {[c({t_2} - d)]^2}  \nonumber \\
 {(x - {A_3})^2} + {(y - {B_3})^2} + {(z - {C_3})^2} &= {[c({t_3} - d)]^2}  \nonumber \\
-{(x - {A_4})^2} + {(y - {B_4})^2} + {(z - {C_4})^2} &= {[c({t_4} - d)]^2} \label{Ex1:system}
+{(x - {A_4})^2} + {(y - {B_4})^2} + {(z - {C_4})^2} &= {[c({t_4} - d)]^2} \label{Ex1:system} 
 \end{align}
 
-Det er ønskelig løse dette ligningssystemet slik at alle x, y, og z er uttrykt med d, slik at det kan lages kvadratiske ligninger i form av d, for så å løse dem med hensyn til d. I oppgaveteksten ble det fortalt at om man subtraherer de tre siste ligningene fra den første i (\ref{Ex1:system}), vil man få tre linneære ligninger. Vi starter med å subtrahere den andre ligningen med den første. 
+Det er ønskelig løse dette likningssystemet slik at alle x, y, og z er uttrykt med d, slik at det kan lages kvadratiske likninger i form av d, for så å løse dem med hensyn til d. I oppgaveteksten ble det fortalt at om man subtraherer de tre siste likningene fra den første i (\ref{Ex1:system}), vil man få tre linneære likninger. Vi starter med å subtrahere den andre likningen med den første. 
 
 \begin{multline}
 {(x - {A_1})^2} - {(x - {A_2})^2} + {(y - {B_1})^2} - {(y - {B_2})^2} + {(z - {C_1})^2} - {(z - {C_2})^2} = 
@@ -34,7 +41,7 @@ Vi samler så utrykkene slik at x, y og z er samlet, mens de resterende konstant
 - 2x({A_1} - {A_2}) - 2y({B_1} - {B_2}) - 2z({C_1} - {C_2}) + 2d{c^2}({t_1} - {t_2}) + W = 0
 \end{multline}
 
-Merk at ligning nr. 3 og 4 også skulle trekkes fra den første fra ligninssettet gitt i (\ref{Ex1:system}). De to nye ligningene vil gi de samme resultatene. De eneste forskjellene vil være koordinatene til satelittene. De tre ligningene blir:
+Merk at likning nr. 3 og 4 også skulle trekkes fra den første fra ligninssettet gitt i (\ref{Ex1:system}). De to nye likningene vil gi de samme resultatene. De eneste forskjellene vil være koordinatene til satelittene. De tre likningene blir:
 \begin{align}
 - 2x({A_1} - {A_2}) - 2y({B_1} - {B_2}) - 2z({C_1} - {C_2}) + 2d{c^2}({t_1} - {t_2}) + W_1 &= 0 \nonumber \\
 - 2x({A_1} - {A_3}) - 2y({B_1} - {B_3}) - 2z({C_1} - {C_3}) + 2d{c^2}({t_1} - {t_3}) + W_2 &= 0  \nonumber\\
@@ -99,7 +106,7 @@ Videre bruker vi loven som sier at matriser med repeterende kolonner er 0\cite{D
 	=0
 \end{align}
 
-Den første delen av determinanten uttrykt i ligning \ref{eq:det_final} kan løses opp og få x på utsiden \cite{TheDeterminant}. Det samme kan gjøres hvor d inngår i matrisen. Da står vi igjen med: 
+Den første delen av determinanten uttrykt i likning \ref{eq:det_final} kan løses opp og få x på utsiden \cite{TheDeterminant}. Det samme kan gjøres hvor d inngår i matrisen. Da står vi igjen med: 
 
 \begin{align}
 	x\cdot\text{det}[\vec{u}_y|\vec{u}_z | \vec{u}_x] 
