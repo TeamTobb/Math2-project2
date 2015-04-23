@@ -7,7 +7,7 @@ I dette prosjektet har vi vist at satelittenes posisjon har ekstremt mye å si f
 	\label{fig:bunchedsat}
 \end{figure}
 
-Kondisjonstallene og de maksimale posisjonsfeilene regnet i oppgave 4 og 5 er avhengige av satelittposisjonene, så derfor kan ikke disse betraktes som de største mulige verdiene for disse egenskapene. Derfor er egentlig disse tallene lave grenser for kondisjonstallet til GPS-problemet. 
+Kondisjonstallene og de maksimale posisjonsfeilene regnet i oppgave 4 og 5 er avhengige av satelittposisjonene, så derfor kan ikke disse betraktes som de største mulige verdiene for disse egenskapene. Derfor er egentlig disse tallene lave grenser for kondisjonstallet til GPS-problemet. Av forsøkene og utregningene gjort i oppgave 4 og 5 ser vi at kondisjonstallet vokser utover forsvarlige grenser når satelittene klumpes opp. 
 
 \vspace{5mm}
 
@@ -15,4 +15,11 @@ Måten GPS kalkulerer posisjonen til brukeren er at man vet avstanden fra 3 fors
 
 \vspace{5mm}
 
-Andre feilkilder som bidrar til at GPS ikke er 100\% nøyaktig, er at lysfarten ikke er lik fra jordas overflate og opp til satelittene. Dette vil føre til at tiden vi regner med at det tar for signalet å komme frem blir litt unøyaktig, ettersom vi i utregningene har regnet med en konstant lyshastighet c. En annen feilkilde er at vi i denne oppgaven tar det for gitt at signalet fra satelittene går i en rett linje til mottakeren. I virkeligheten har man diverse obstruksjoner som gjør at signalet kan brytes i forskjellige retninger. Dette fører til at mottakeren mottar det samme signalet til forskjellige tider, noe som fører til enda en usikkerhet. Til slutt finnes det i realiteten diverse naturlige og menneskeskapte signaler som vil forstyrre signalet fra satelittene. I virkeligheten er alle disse problemene enten fjernet helt eller redusert, men i vår oppgave er disse problemene sett bort ifra. Derfor får vi forskjellige resultater enn GPS får i praksis. 
+Andre feilkilder som bidrar til at GPS ikke er 100\% nøyaktig, er at lysfarten ikke er lik fra jordas overflate og opp til satelittene. Dette vil føre til at tiden vi regner med at det tar for signalet å komme frem blir litt unøyaktig, ettersom vi i utregningene har regnet med en konstant lyshastighet c. En annen feilkilde er at vi i denne oppgaven tar det for gitt at signalet fra satelittene går i en rett linje til mottakeren. I virkeligheten har man diverse obstruksjoner som gjør at signalet kan brytes i forskjellige retninger. Dette fører til at mottakeren mottar det samme signalet til forskjellige tider, noe som fører til enda en usikkerhet. Til slutt finnes det i realiteten diverse naturlige og menneskeskapte signaler som vil forstyrre signalet fra satelittene. I figur \ref{fig:errortable} ser vi en oversikt over diverse feilkilder og hvor mye de påvirker posisjonens nøyaktighet \cite{StrangBorre}. I virkeligheten er alle disse problemene enten fjernet helt eller redusert, men i vår oppgave er disse problemene sett bort ifra. Derfor får vi forskjellige resultater enn GPS får i praksis. 
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.60\textwidth]{sections/Conclusion/errortable.jpg}
+	\caption{Diverse feilkilder}
+	\label{fig:errortable}
+\end{figure}
