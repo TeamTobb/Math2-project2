@@ -16,7 +16,7 @@ noting that the determinant is linear in its columns and that a matrix with a re
 {(x - {A_4})^2} + {(y - {B_4})^2} + {(z - {C_4})^2} &= {[c({t_4} - d)]^2} \label{Ex1:system} 
 \end{align}
 
-Det er ønskelig løse dette likningssystemet slik at alle x, y, og z er uttrykt med d, slik at det kan lages kvadratiske likninger i form av d, for så å løse dem med hensyn til d. I oppgaveteksten ble det fortalt at om man subtraherer de tre siste likningene fra den første i (\ref{Ex1:system}), vil man få tre linneære likninger. Vi starter med å subtrahere den andre likningen med den første. 
+Det er ønskelig løse dette likningssystemet slik at alle x, y, og z er uttrykt med d, slik at det kan lages kvadratiske likninger i form av d, for så å løse dem med hensyn til d. I oppgaveteksten ble det fortalt at om man subtraherer de tre siste likningene fra den første i (\ref{Ex1:system}), vil man få tre lineære likninger. Vi starter med å subtrahere den andre likningen med den første. 
 
 \begin{multline}
 {(x - {A_1})^2} - {(x - {A_2})^2} + {(y - {B_1})^2} - {(y - {B_2})^2} + {(z - {C_1})^2} - {(z - {C_2})^2} = 
@@ -32,7 +32,7 @@ Vi løser opp andregradsuttrykkene i (\ref{Ex1:linearEqs}) og setter uttrykket l
 + \\
 ({z^2} - 2{C_1}z + C_1^2) - ({z^2} - 2{C_2}z + C_2^2)\\
 - \\
-({c^2}{t_1} - 2{t_1}{c^2} + {c^2}{d^2}) + ({c^2}{t_2} - 2{t_2}{c^2} + {c^2}{d^2}) \\
+({c^2}{t^2_1} - 2{t_1}d{c^2} + {c^2}{d^2}) + ({c^2}{t^2_2} - 2{t_2}d{c^2} + {c^2}{d^2}) \\
 = \\
 0 \\ \nonumber
 \end{multline} 
@@ -42,7 +42,7 @@ Vi samler så utrykkene slik at x, y og z er samlet, mens de resterende konstant
 - 2x({A_1} - {A_2}) - 2y({B_1} - {B_2}) - 2z({C_1} - {C_2}) + 2d{c^2}({t_1} - {t_2}) + W = 0
 \end{multline}
 
-Merk at likning nr. 3 og 4 også skulle trekkes fra den første fra ligninssettet gitt i (\ref{Ex1:system}). De to nye likningene vil gi de samme resultatene. De eneste forskjellene vil være koordinatene til satelittene. De tre likningene blir:
+Merk at likning nr. 3 og 4 også skulle trekkes fra den første fra ligningssettet gitt i (\ref{Ex1:system}). De to nye likningene vil gi de samme resultatene. De eneste forskjellene vil være koordinatene til satelittene. De tre likningene blir:
 \begin{align}
 - 2x({A_1} - {A_2}) - 2y({B_1} - {B_2}) - 2z({C_1} - {C_2}) + 2d{c^2}({t_1} - {t_2}) + W_1 &= 0 \nonumber \\
 - 2x({A_1} - {A_3}) - 2y({B_1} - {B_3}) - 2z({C_1} - {C_3}) + 2d{c^2}({t_1} - {t_3}) + W_2 &= 0  \nonumber\\
@@ -98,7 +98,7 @@ Vi ønsker å utlede et uttrykk for x fra denne determinanten. Determinanten for
 \end{align}
 %double end
 
-Videre bruker vi loven som sier at matriser med repeterende kolonner er 0 \cite{Determinants}. Da står vi igjen med: 
+Videre bruker vi loven som sier at determinanten til matriser med repeterende kolonner er 0 \cite{Determinants}. Da står vi igjen med: 
 
 \begin{align} \label{eq:det_final}
 	\text{det}[\vec{u}_y|\vec{u}_z | x\vec{u}_x] 
@@ -154,7 +154,7 @@ Bruker vi samme fremgangsmåte som for x, ender vi opp med følgende uttrykk for
 	-\text{det}[\vec{u}_x|\vec{u}_y | \vec{w}]}{\text{det}[\vec{u}_x|\vec{u}_y | \vec{u}_z]}
 \end{align}
 
-Nå har vi altså fått uttrykt både x, y og z ved d. Vi kunne her ha uttrykt uttrykkene med den samme nevneren, ved å bruke loven som sier at vi kan endre fortegn til en determinant så lenge vi bytter plass på 2 rader \cite{TheDeterminant}. For nå å gå videre, setter vi disse inn i bokas likning 4.38. Dette vil resultere i en likning som inneholder d i første og andre grad, og vi kan derav finne d ved å bruke andregradsformelen. Med andre ord vil vi få ett utrykk som vi kan skrive som $Ad^2+Bd+C=0$ Andregradsformelen er gitt ved $d=\frac{-B \pm \sqrt{B^2-4AC}}{2A}$. Før vi setter uttrykkene vi har funnet for x, y og z inn i bokas likning 4.38, deler vi de opp i flere variabler for å gjøre uttrykket ryddigere. Vi setter
+Nå har vi altså fått uttrykt både x, y og z ved d. Vi kunne her ha uttrykt uttrykkene med den samme nevneren, ved å bruke loven som sier at vi kan endre fortegn til en determinant så lenge vi bytter plass på 2 rader \cite{TheDeterminant}. For nå å gå videre, setter vi disse inn i bokas likning 4.38. Dette vil resultere i en likning som inneholder d i første og andre grad, og vi kan derav finne d ved å bruke andregradsformelen. Med andre ord vil vi få ett utrykk som vi kan skrive som $Ad^2+Bd+C=0$. Andregradsformelen er gitt ved $d=\frac{-B \pm \sqrt{B^2-4AC}}{2A}$. Før vi setter uttrykkene vi har funnet for x, y og z inn i bokas likning 4.38, deler vi de opp i flere variabler for å gjøre uttrykket ryddigere. Vi setter
 
 \begin{align}
 	x_1&=\frac{-d\cdot\text{det}[\vec{u}_y|\vec{u}_z | \vec{u}_d]}{\text{det}[\vec{u}_y|\vec{u}_z | \vec{u}_x]}\nonumber 
@@ -179,7 +179,7 @@ Nå har vi altså fått uttrykt både x, y og z ved d. Vi kunne her ha uttrykt u
 \begin{align}
     z_2&=\frac{-d\cdot\text{det}[\vec{u}_x|\vec{u}_y | \vec{w}]}{\text{det}[\vec{u}_x|\vec{u}_y | \vec{u}_z]}\nonumber 
 \end{align}
-
+\newpage
 I MatLab er dette kodet på følgende måte: 
 \begin{lstlisting}
 	%Dette bruker vi til å løse andregradslikningen for D. Definerer deler 
@@ -212,7 +212,7 @@ Av dette følger det at $x=x_1+x_2$, $y=y_1+y_2$ og $z=z_1+z_2$. Setter vi nå d
     \\
     x_1^2+2x_1x_2+x_2^2-2Ax_1-2Ax_2+A^2+y_1^2+2y_1y_2+y_2^2-2By_1-2By_2+B^2\\
     +\\
-    z_1^2+2z_1z_2+z_2^2-2Cz_1-2Cz_2+C^2-c^2t^2-c^22td-c^2d^2 \\
+    z_1^2+2z_1z_2+z_2^2-2Cz_1-2Cz_2+C^2-c^2{t_1}^2-c^22{t_1}d-c^2d^2 \\
     = 0\\
 \end{multline}
 Som vi ser i utregning \ref{eq:d_expanded} har vi satt inn uttrykkene vi har funnet for x, y og z. Videre ønsker vi å samle alle leddene som vil få $d^2$ for seg, leddene med $d^1$ for seg og resten i en siste gruppe. Da vi ga verdier til $x_1$, $y_1$ og $z_1$, ser vi at det er bare disse leddene som inneholder en d. Det vil si at de eneste leddene hvor d blir i andre grad, er leddene hvor $x_1$, $y_1$ og $z_1$ er opphøyd i andre. Disse samler vi og setter inn i A i andregradsformelen. Videre vil alle leddene som inneholder d i første grad være der hvor $x_1$, $y_1$ og $z_1$ står i første grad. Disse samler vi i B i andregradsformelen. Vi har altså samlet alle koeffisientene som står foran $d^2$ i A, koeffisientene foran $d^1$ i B mens resten av leddene samles i C. A, B og C blir da som følger: 
